@@ -1,13 +1,12 @@
-Raspberry PI Bare Metal software test
+<b>Raspberry PI Bare Metal software test</b>
+
+SD card should be formatted with a single partition as FAT32.
+Copy the /boot files to the SD card or use movetosd script. 
 
 boot/ contains the necessary files to boot the Pi:
 - bootcode.bin
 - start.elf
 - kernel.img - which is actually the compiled program.
-
-SD card should be formatted with a single partition as FAT32.
-Copy the /boot files to the SD card, and try it on the Pi.
-Automated script will be added later.
 
 Problems with the Raspberry Pi 3 when trying to use old codes (Pi,Pi2,...):
 - Leds were moved to an i2c GPIO expander
@@ -16,12 +15,11 @@ Problems with the Raspberry Pi 3 when trying to use old codes (Pi,Pi2,...):
 The mini-UART doesnt have a separate clock divisor and uses the core clock frequency.
 Mini-UART is mapped to GPIO14/15 as the PL011 UART is now used for bluetooth communications.
 
-Goals:
+<b>Goals:</b>
 - LED GPIO example (done)
 - Port LIBC
 - UART via USB for debug
-- Implement the Row Hammer algorithm
 
-Build PC:
-- Arch w/ Kernel 4.5.2
-- arm-none-eabi-gcc with gcc v5.3.0
+<b>Build PC:</b>
+- ARCH w/ Kernel 4.5.2
+- arm-none-eabi-gcc @ gcc v5.3.0
