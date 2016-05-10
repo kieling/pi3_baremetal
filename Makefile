@@ -6,16 +6,15 @@ LD  = arm-none-eabi-ld
 KC  = arm-none-eabi-objcopy
 
 LDFLAGS =
-CFLAGS  = -nostartfiles -Wall -O2 -mcpu=cortex-a53 -mfpu=neon-fp-armv8
+CFLAGS  = -nostartfiles -Wall -mcpu=cortex-a53 -mfpu=neon-fp-armv8
+#-march=armv8-a -mtune=cortex-a53 -mfloat-abi=hard
 
-#The intermediate directory for compiled object files.
+# Directories
 BUILD = build/
-
 SOURCE = source/
 
-#The name of the output file to generate.
+# Outputs
 TARGET = $(BUILD)kernel.elf
-
 KERNEL = $(BUILD)kernel.img
 
 $(KERNEL): $(TARGET)
@@ -25,10 +24,9 @@ $(TARGET): $(SOURCE)main.o
 	$(LD) $(LDFLAGS) -o $@ $<
 
 $(BUILD)main.o: $(SOURCE)main.c
-	$(CC) $(CFLAGS) -c $< $@
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -rf $(TARGET)
-	rm -rf $(BUILD)*.o
 	rm -rf $(SOURCE)*.o
-	rm -rf $(BUILD)*.img
+	rm -rf $(BUILD)*.*
