@@ -1,12 +1,12 @@
 <b>Raspberry PI Bare Metal software test</b>
 
 SD card should be formatted with a single partition as FAT32.
-Copy the /boot files to the SD card or use movetosd script. 
+Copy the /boot files to the SD card or use movetosd script.
 
 boot/ contains the necessary files to boot the Pi:
 - bootcode.bin
 - start.elf
-- kernel.img - which is actually the compiled program.
+- kernel.img/kernel7.img - which is actually the compiled program.
 
 Problems with the Raspberry Pi 3 when trying to use old codes (Pi,Pi2,...):
 - Leds were moved to an i2c GPIO expander
@@ -17,7 +17,7 @@ Mini-UART is mapped to GPIO14/15 as the PL011 UART is now used for bluetooth com
 
 <b>Goals:</b>
 - LED GPIO example (done)
-- Port LIBC
+- Port LIBC (done(?), malloc already working)
 - UART via USB for debug
 
 <b>Build PC:</b>

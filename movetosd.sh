@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir /run/media/
 mkdir /run/media/sdcard
 mount /dev/mmcblk0p1 /run/media/sdcard
 
@@ -12,3 +13,7 @@ if [ -f /run/media/sdcard/kernel.img ] && [ -f /run/media/sdcard/start.elf ] && 
 else
     echo "Error, files not found."
 fi
+
+sync
+
+#umount /run/media/sdcard
